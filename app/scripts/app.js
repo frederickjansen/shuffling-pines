@@ -16,17 +16,17 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/form', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/guests', {
+        templateUrl: 'views/guests.html',
+        controller: 'GuestsCtrl',
+        controllerAs: 'guests'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/form'
       });
   });

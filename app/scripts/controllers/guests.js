@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name shufflingPines.controller:AboutCtrl
+ * @name shufflingPines.controller:GuestsCtrl
  * @description
  * # AboutCtrl
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines')
-  .controller('AboutCtrl', function () {
+  .controller('GuestsCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
