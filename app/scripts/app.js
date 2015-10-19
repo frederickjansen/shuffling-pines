@@ -23,30 +23,22 @@ angular
 
         // Setup an abstract state for the tabs directive
         .state('main', {
-          url: '',
+          abstract: true,
           templateUrl: 'views/main.html',
           controller: 'MainCtrl as main'
         })
 
         .state('main.form', {
           url: '/form',
-          views: {
-            'tab-form': {
-              templateUrl: 'views/form.html',
-              controllerAs: 'FormCtrl as form'
-            }
-          }
+          templateUrl: 'views/form.html',
+          controllerAs: 'FormCtrl as form'
         })
 
         .state('main.guests', {
           url: '/guests',
-          views: {
-            'tab-progress': {
-              templateUrl: 'views/guests.html',
-              controllerAs: 'GuestsCtrl as guests'
-            }
-          }
+          templateUrl: 'views/guests.html',
+          controllerAs: 'GuestsCtrl as guests'
         });
 
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/form');
     }]);

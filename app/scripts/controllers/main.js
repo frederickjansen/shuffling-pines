@@ -15,7 +15,7 @@ angular.module('shufflingPines')
         route:   'main.form'
       },
       {
-        heading: 'Accounts',
+        heading: 'Guests',
         route:   'main.guests'
       }
     ];
