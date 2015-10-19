@@ -2,16 +2,21 @@
 
 /**
  * @ngdoc function
- * @name shufflingPines.controller:MainCtrl
+ * @name shufflingPines.controller:GuestsCtrl
  * @description
- * # MainCtrl
+ * # AboutCtrl
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+  .controller('MainCtrl', ['$scope', function ($scope) {
+    this.tabData   = [
+      {
+        heading: 'Form',
+        route:   'main.form'
+      },
+      {
+        heading: 'Accounts',
+        route:   'main.guests'
+      }
     ];
-  });
+  }]);

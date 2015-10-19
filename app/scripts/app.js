@@ -11,22 +11,42 @@
 angular
   .module('shufflingPines', [
     'ngAnimate',
-    'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ui.router',
+    'ui.bootstrap',
+    'ui.router.tabs'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/form', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/guests', {
-        templateUrl: 'views/guests.html',
-        controller: 'GuestsCtrl',
-        controllerAs: 'guests'
-      })
-      .otherwise({
-        redirectTo: '/form'
-      });
-  });
+  .config(['$stateProvider', '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
+
+      $stateProvider
+
+        // Setup an abstract state for the tabs directive
+        .state('main', {
+          url: '',
+          templateUrl: 'views/main.html',
+          controller: 'MainCtrl as main'
+        })
+
+        .state('main.form', {
+          url: '/form',
+          views: {
+            'tab-form': {
+              templateUrl: 'views/form.html',
+              controllerAs: 'FormCtrl as form'
+            }
+          }
+        })
+
+        .state('main.guests', {
+          url: '/guests',
+          views: {
+            'tab-progress': {
+              templateUrl: 'views/guests.html',
+              controllerAs: 'GuestsCtrl as guests'
+            }
+          }
+        });
+
+      $urlRouterProvider.otherwise('/');
+    }]);
