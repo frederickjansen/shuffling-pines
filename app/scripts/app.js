@@ -16,8 +16,8 @@ angular
     'ui.bootstrap',
     'ui.router.tabs'
   ])
-  .config(['$stateProvider', '$urlRouterProvider',
-    function ($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
       $stateProvider
 
@@ -41,4 +41,5 @@ angular
         });
 
       $urlRouterProvider.otherwise('/form');
+      $locationProvider.html5Mode(true);
     }]);
