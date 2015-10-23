@@ -14,7 +14,8 @@ angular
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'ui.router.tabs'
+    'ui.router.tabs',
+    'LocalStorageModule'
   ])
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
