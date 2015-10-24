@@ -42,5 +42,5 @@ angular
         });
 
       $urlRouterProvider.otherwise('/form');
-      $locationProvider.html5Mode(true);
+      //$locationProvider.html5Mode(true);
     }]);
