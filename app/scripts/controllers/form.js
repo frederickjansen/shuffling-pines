@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name shufflingPines.controller:MainCtrl
+ * @name shufflingPines.controller:FormCtrl
  * @description
- * # MainCtrl
+ * # FormCtrl
  * Controller of the shufflingPines
  */
-angular.module('shufflingPines')
+angular.module('shufflingPines.controllers')
   .controller('FormCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

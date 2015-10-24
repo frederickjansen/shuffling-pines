@@ -4,14 +4,24 @@
  * @ngdoc function
  * @name shufflingPines.controller:GuestsCtrl
  * @description
- * # AboutCtrl
+ * # GuestsCtrl
  * Controller of the shufflingPines
  */
-angular.module('shufflingPines')
-  .controller('GuestsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('shufflingPines.controllers')
+  .controller('GuestsCtrl', ['Guests', function (Guests) {
+    this.addGuest = function () {
+      Guests.addGuest();
+    };
+
+    this.removeGuest = function () {
+      Guests.removeGuest();
+    };
+
+    this.editGuest = function () {
+      Guests.editGuest();
+    };
+
+    this.getGuests = function () {
+      Guests.getGuests();
+    };
+  }]);

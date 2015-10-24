@@ -10,6 +10,9 @@
  */
 angular
   .module('shufflingPines', [
+    'shufflingPines.controllers',
+    'shufflingPines.services',
+    'shufflingPines.filters',
     'ngAnimate',
     'ngSanitize',
     'ui.router',
@@ -44,3 +47,8 @@ angular
       $urlRouterProvider.otherwise('/form');
       //$locationProvider.html5Mode(true);
     }]);
+
+// Declare modules
+angular.module('shufflingPines.controllers', []);
+angular.module('shufflingPines.services', []);
+angular.module('shufflingPines.filters', []);

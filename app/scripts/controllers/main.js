@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name shufflingPines.controller:GuestsCtrl
+ * @name shufflingPines.controller:MainCtrl
  * @description
- * # AboutCtrl
+ * # MainCtrl
  * Controller of the shufflingPines
  */
-angular.module('shufflingPines')
+angular.module('shufflingPines.controllers')
   .controller('MainCtrl', ['$scope', function ($scope) {
     this.tabData   = [
       {
