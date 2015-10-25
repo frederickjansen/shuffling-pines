@@ -24,7 +24,8 @@ angular.module('shufflingPines.controllers')
     };
 
     this.getGuests = function () {
-      that.guests = Guests.getGuests();
-      return that.guests;
+      return Guests.getGuests();
     };
+
+    this.allGuests = this.getGuests();
   }]);
