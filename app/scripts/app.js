@@ -36,13 +36,13 @@ angular
         .state('main.form', {
           url: '/form',
           templateUrl: 'views/form.html',
-          controllerAs: 'FormCtrl as form'
+          controller: 'FormCtrl as form'
         })
 
         .state('main.guests', {
           url: '/guests',
           templateUrl: 'views/guests.html',
-          controllerAs: 'GuestsCtrl as guests'
+          controller: 'GuestsCtrl as guests'
         });
 
       $urlRouterProvider.otherwise('/form');
