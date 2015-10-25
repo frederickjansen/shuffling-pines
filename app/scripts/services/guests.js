@@ -6,7 +6,7 @@ angular.module('shufflingPines.services')
    =                   Guests                   =
    =============================================*/
   .factory('Guests', ['localStorageService',
-    function ($localStorageService) {
+    function (localStorageService) {
       var guests = {};
 
       guests.addGuest = function () {
@@ -22,7 +22,12 @@ angular.module('shufflingPines.services')
       };
 
       guests.getGuests = function () {
+        var guests = localStorageService.get('guests');
+        if (!guests) {
+          guests = generateGuests();
+        }
 
+        return guests;
       };
 
       function generateGuests() {

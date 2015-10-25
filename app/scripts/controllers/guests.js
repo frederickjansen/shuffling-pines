@@ -9,6 +9,8 @@
  */
 angular.module('shufflingPines.controllers')
   .controller('GuestsCtrl', ['Guests', function (Guests) {
+    var that = this;
+
     this.addGuest = function () {
       Guests.addGuest();
     };
@@ -22,6 +24,7 @@ angular.module('shufflingPines.controllers')
     };
 
     this.getGuests = function () {
-      Guests.getGuests();
+      that.guests = Guests.getGuests();
+      return that.guests;
     };
   }]);

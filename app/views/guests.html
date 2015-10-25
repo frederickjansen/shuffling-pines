@@ -1,7 +1,7 @@
 <div role="tabpanel" class="tab-pane" id="guests">
-  <ul class="list-unstyled">
+  <ul class="list-unstyled" ng-repeat="(key, guest) in guests.getGuests()">
     <li>
-      Content
+      {{guest.name}}
     </li>
   </ul>
 </div>
