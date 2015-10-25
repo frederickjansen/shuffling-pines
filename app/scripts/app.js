@@ -18,7 +18,8 @@ angular
     'ui.router',
     'ui.bootstrap',
     'ui.router.tabs',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'monospaced.elastic'
   ])
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
