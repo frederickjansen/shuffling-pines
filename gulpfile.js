@@ -5,6 +5,7 @@ var minifycss = require('gulp-minify-css');
 var Server = require('karma').Server;
 var jshint = require('gulp-jshint');
 var connect = require('gulp-connect');
+var inject = require('gulp-inject');
 
 // *******************************************
 
@@ -45,7 +46,19 @@ gulp.task('moveHTML', function(){
     .pipe(connect.reload());
 });
 
-gulp.task('build', ['buildApp', 'buildVendor', 'buildCSS', 'moveHTML']);
+gulp.task('injectHTML', function () {
+  return gulp.src('./dist/index.html')
+    .pipe(inject(gulp.src([
+      './dist/vendors.js',
+      './dist/app.js',
+      './dist/styles.css'],
+      {read: false}),
+      {relative: true}))
+    .pipe(gulp.dest('dist'))
+    .pipe(connect.reload());
+});
+
+gulp.task('build', ['buildApp', 'buildVendor', 'buildCSS', 'moveHTML', 'injectHTML']);
 
 // **********************************
 
