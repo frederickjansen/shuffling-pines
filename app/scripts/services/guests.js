@@ -36,17 +36,20 @@ angular.module('shufflingPines.services')
             name: "John Doe",
             transitionDate: new Date(2015, 12, 20),
             status: "dropoff",
-            location: "123 St\r\nBoston"
+            location: "123 St\r\nBoston",
+            deleted: false
           }, {
             name: "Jane Doe",
             transitionDate: new Date(2015, 12, 21),
             status: "pickup",
-            location: "321 Ave\r\nCambridge"
+            location: "321 Ave\r\nCambridge",
+            deleted: false
           }, {
             name: "Joe Johnson",
             transitionDate: new Date(2015, 12, 22),
             status: "dropoff",
-            location: "1 Rd\r\nSomerville"
+            location: "1 Rd\r\nSomerville",
+            deleted: false
           }
         ];
 
