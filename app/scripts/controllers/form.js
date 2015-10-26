@@ -8,10 +8,12 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('FormCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('FormCtrl', ['Guests', function (Guests) {
+    var that = this;
+    /**
+     * Form submit
+     */
+    this.submit = function (guest) {
+      console.log(guest);
+    };
+  }]);

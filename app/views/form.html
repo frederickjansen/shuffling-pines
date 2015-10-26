@@ -1,47 +1,48 @@
 <div role="tabpanel" class="tab-pane active" id="form">
-  <form class="col-md-12 well">
-    <div class="form-group">
-      <label for="guest-name">Guest Name</label>
-      <input type="text" class="form-control" id="guest-name" ng-model="name" placeholder="">
+  <form class="col-md-12 well" name="guestForm" ng-submit="form.submit(guest)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : guestForm.name.$invalid && !guestForm.name.$untouched }">
+      <label>Guest Name*</label>
+      <input type="text" name="name" class="form-control" ng-model="guest.name" ng-required="true">
+      <p ng-show="guestForm.name.$invalid && !guestForm.name.$untouched" class="help-block">Your name is required.</p>
     </div>
     <div class="form-group">
       <label for="transition-date">Transition Date</label>
-      <input type="date" class="form-control" id="transition-date" ng-model="transitionDate" placeholder="">
+      <input type="date" class="form-control" id="transition-date" ng-model="guest.transitionDate" placeholder="">
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="pickup-dropoff" id="pickup" value="pickup" ng-model="status" checked>
+        <input type="radio" name="pickup-dropoff" id="pickup" value="pickup" ng-model="guest.status" checked>
         Pick-up
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="pickup-dropoff" id="dropoff" ng-model="status" value="dropoff">
+        <input type="radio" name="pickup-dropoff" id="dropoff" ng-model="guest.status" value="dropoff">
         Drop-off
       </label>
     </div>
     <div class="form-group">
       <label for="location">Location</label>
-      <textarea class="form-control" id="location" ng-model="location" msd-elastic></textarea>
+      <textarea class="form-control" id="location" ng-model="guest.location" msd-elastic></textarea>
     </div>
-    <button type="submit" class="btn">Submit</button>
+    <button type="submit" id="submit" class="btn" ng-disabled="guestForm.$invalid">Submit</button>
   </form>
 
   <!-- bound display -->
   <div class="col-md-12 well">
     <div class="form-group">
       <label>Name: </label>
-      {{name}}
+      {{guest.name}}
     </div>
     <div class="form-group">
       <label>Transition Date: </label>
-      {{transitionDate | date:'longDate'}}
+      {{guest.transitionDate | date:'longDate'}}
     </div>
     <div class="form-group">
       <label>Status: </label>
-      {{status | capitalize}}
+      {{guest.status | capitalize}}
     </div>
       <label>Location: </label>
-      <span ng-bind-html="location | nl2br"></span>
+      <span ng-bind-html="guest.location | nl2br"></span>
   </div>
 </div>
