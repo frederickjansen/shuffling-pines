@@ -10,7 +10,7 @@
     <div class="form-group"
          ng-class="{ 'has-error' : guestForm.transitionDate.$invalid && !guestForm.transitionDate.$untouched }">
       <label>Transition Date*</label>
-      <input type="text" name="transitionDate" class="form-control" ng-model="guest.transitionDate" ng-required="true">
+      <input type="date" name="transitionDate" class="form-control" ng-model="guest.transitionDate" ng-required="true">
 
       <p ng-show="guestForm.transitionDate.$invalid && !guestForm.transitionDate.$untouched" class="help-block">The
         transition date is required.</p>
