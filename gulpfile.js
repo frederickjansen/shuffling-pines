@@ -33,6 +33,7 @@ gulp.task('buildVendor', function(){
 gulp.task('buildCSS', function(){
   return gulp.src([
     'bower_components/bootstrap-css-only/css/bootstrap.css',
+    'bower_components/angular-xeditable/dist/css/xeditable.css',
     'app/styles/**/*.css'])
     .pipe(concat('styles.css'))
     .pipe(minifycss())
