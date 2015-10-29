@@ -9,8 +9,10 @@ angular.module('shufflingPines.services')
     function (localStorageService) {
       var guests = {};
 
-      guests.addGuest = function () {
-
+      guests.addGuest = function (guest) {
+        var allGuests = localStorageService.get('guests');
+        allGuests.push(guest);
+        localStorageService.set('guests', allGuests);
       };
 
       guests.removeGuest = function () {

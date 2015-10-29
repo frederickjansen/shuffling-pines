@@ -13,6 +13,9 @@ angular.module('shufflingPines.controllers')
      * Form submit
      */
     this.submit = function (guest) {
-      console.log(guest);
+      guest.deleted = false;
+      GuestService.addGuest(guest);
+      console.log(GuestService.getGuests());
+      $state.go('main.guests');
     };
   }]);
