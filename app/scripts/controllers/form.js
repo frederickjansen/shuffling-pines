@@ -8,8 +8,7 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('FormCtrl', ['Guests', function (Guests) {
-    var that = this;
+  .controller('FormCtrl', ['$state', 'GuestService', function ($state, GuestService) {
     /**
      * Form submit
      */

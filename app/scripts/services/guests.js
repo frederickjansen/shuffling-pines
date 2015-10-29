@@ -5,7 +5,7 @@ angular.module('shufflingPines.services')
   /*=============================================
    =                   Guests                   =
    =============================================*/
-  .factory('Guests', ['localStorageService',
+  .factory('GuestService', ['localStorageService',
     function (localStorageService) {
       var guests = {};
 

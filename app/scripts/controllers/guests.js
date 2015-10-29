@@ -8,23 +8,23 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('GuestsCtrl', ['Guests', function (Guests) {
+  .controller('GuestsCtrl', ['GuestService', function (GuestService) {
     var that = this;
 
-    this.addGuest = function () {
-      Guests.addGuest();
+    this.addGuest = function (guest) {
+      GuestService.addGuest(guest);
     };
 
     this.removeGuest = function () {
-      Guests.removeGuest();
+      GuestService.removeGuest();
     };
 
     this.editGuest = function () {
-      Guests.editGuest();
+      GuestService.editGuest();
     };
 
     this.getGuests = function () {
-      return Guests.getGuests();
+      return GuestService.getGuests();
     };
 
     this.allGuests = this.getGuests();
