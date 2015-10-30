@@ -1,7 +1,52 @@
 <div role="tabpanel" class="tab-pane" id="guests">
-  <ul class="list-unstyled" ng-repeat="(key, guest) in guests.allGuests">
-    <li>
-      {{guest.name}}
-    </li>
-  </ul>
+  <table class="table table-bordered table-hover table-condensed">
+    <tr style="font-weight: bold">
+      <td style="width:20%">Name</td>
+      <td style="width:20%">Transition Date</td>
+      <td style="width:10%">Status</td>
+      <td style="width:30%">Location</td>
+      <td style="width:20%">Edit</td>
+    </tr>
+    <tr ng-repeat="(key, guest) in guests.allGuests | filter: { deleted: false }">
+      <td>
+        <!-- editable username (text with validation) -->
+        <span editable-text="guest.name" e-name="name" e-form="rowform" e-required>
+          {{ guest.name }}
+        </span>
+      </td>
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-bsdate="guest.transitionDate" e-uib-datepicker-popup="mm-dd-yyyy" e-init-date="2015-12-12" e-name="transitionDate" e-form="rowform">
+          {{ guest.transitionDate | date:'longDate' }}
+        </span>
+      </td>
+      <td>
+        <!-- editable group (select-local) -->
+        <span editable-select="guest.status" e-name="status" e-form="rowform">
+          {{ guest.status | capitalize }}
+        </span>
+      </td>
+      <td>
+        <!-- editable group (select-local) -->
+        <span editable-textarea="guest.location" e-name="location" e-form="rowform" >
+          {{ guest.location }}
+        </span>
+      </td>
+      <td style="white-space: nowrap">
+        <!-- form -->
+        <form editable-form name="rowform" onbeforesave="guests.editGuest($data, $index)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == guest">
+          <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+            save
+          </button>
+          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+            cancel
+          </button>
+        </form>
+        <div class="buttons" ng-show="!rowform.$visible">
+          <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+          <button class="btn btn-danger" ng-click="alert('Delete guest?'); guests.removeGuest($index)">del</button>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
