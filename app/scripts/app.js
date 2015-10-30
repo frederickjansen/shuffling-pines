@@ -48,7 +48,10 @@ angular
 
       $urlRouterProvider.otherwise('/form');
       //$locationProvider.html5Mode(true);
-    }]);
+    }])
+  .run(function(editableOptions) {
+    editableOptions.theme = 'bs3';
+  });
 
 // Declare modules
 angular.module('shufflingPines.controllers', []);
