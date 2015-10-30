@@ -9,18 +9,15 @@
  */
 angular.module('shufflingPines.controllers')
   .controller('GuestsCtrl', ['GuestService', function (GuestService) {
-    var that = this;
 
-    this.addGuest = function (guest) {
-      GuestService.addGuest(guest);
+    this.removeGuest = function (id) {
+      if (confirm('Are you sure you want to delete this guest?')) {
+        GuestService.removeGuest(id);
+      }
     };
 
-    this.removeGuest = function () {
-      GuestService.removeGuest();
-    };
-
-    this.editGuest = function () {
-      GuestService.editGuest();
+    this.editGuest = function (id) {
+      GuestService.editGuest(id);
     };
 
     this.getGuests = function () {

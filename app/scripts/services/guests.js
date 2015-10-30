@@ -10,17 +10,21 @@ angular.module('shufflingPines.services')
       var guests = {};
 
       guests.addGuest = function (guest) {
-        var allGuests = localStorageService.get('guests');
+        var allGuests = this.getGuests();
         allGuests.push(guest);
         localStorageService.set('guests', allGuests);
       };
 
-      guests.removeGuest = function () {
-
+      guests.removeGuest = function (id) {
+        var guests = this.getGuests();
+        guests[id].deleted = true;
+        localStorageService.set('guests', guests);
       };
 
-      guests.editGuest = function () {
-
+      guests.editGuest = function (id, guest) {
+        var guests = this.getGuests();
+        guests[id] = guest;
+        localStorageService.set('guests', guests);
       };
 
       guests.getGuests = function () {
@@ -56,6 +60,7 @@ angular.module('shufflingPines.services')
         ];
 
         localStorageService.set('guests', guestsObj);
+        return guestsObj;
       }
 
       return guests;
