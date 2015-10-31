@@ -8,7 +8,7 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('MainCtrl', ['$scope', function ($scope) {
+  .controller('MainCtrl', [function () {
     this.tabData   = [
       {
         heading: 'Form',
