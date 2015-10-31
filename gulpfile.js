@@ -47,7 +47,7 @@ gulp.task('moveHTML', function(){
     .pipe(connect.reload());
 });
 
-gulp.task('injectHTML', function () {
+gulp.task('injectHTML', ['buildApp', 'buildVendor', 'buildCSS', 'moveHTML'], function () {
   return gulp.src('./dist/index.html')
     .pipe(inject(gulp.src([
       './dist/vendors.js',
