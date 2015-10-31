@@ -8,7 +8,8 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('GuestsCtrl', ['GuestService', function (GuestService) {
+  .controller('GuestsCtrl', ['$timeout', 'GuestService', function ($timeout, GuestService) {
+    var that = this;
 
     this.removeGuest = function (id) {
       if (confirm('Are you sure you want to delete this guest?')) {
@@ -25,4 +26,6 @@ angular.module('shufflingPines.controllers')
     };
 
     this.allGuests = this.getGuests();
+
+    this.picker = { opened: false };
   }]);
