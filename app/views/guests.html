@@ -39,13 +39,12 @@
       </td>
       <td>
         <!-- editable group (select-local) -->
-        <span editable-textarea="guest.location" e-name="location" e-form="rowform">
-          {{ guest.location }}
-        </span>
+        <span editable-textarea="guest.location" ng-bind-html="guest.location | nl2br" e-name="location"
+              e-form="rowform"></span>
       </td>
       <td style="white-space: nowrap">
         <!-- form -->
-        <form editable-form name="rowform" onbeforesave="guests.editGuest($data, $index)" ng-show="rowform.$visible"
+        <form editable-form name="rowform" onbeforesave="guests.editGuest(guest.id, $data)" ng-show="rowform.$visible"
               class="form-buttons form-inline" shown="inserted == guest">
           <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
             save

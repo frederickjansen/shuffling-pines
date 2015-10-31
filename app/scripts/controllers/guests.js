@@ -13,8 +13,6 @@ angular.module('shufflingPines.controllers')
      * Remove a guest by setting the deleted flag to true
      * @param id Guest id to remove
      */
-    var that = this;
-
     this.removeGuest = function (id) {
       if (confirm('Are you sure you want to delete this guest?')) {
         GuestService.removeGuest(id);
@@ -22,9 +20,19 @@ angular.module('shufflingPines.controllers')
       }
     };
 
-      GuestService.editGuest(id);
+    /**
+     * Edit a guest
+     * @param guest Object
+     */
+    this.editGuest = function (guestId, data) {
+      data.id = guestId;
+      data.deleted = false;
+      GuestService.editGuest(guestId, data);
     };
 
+    /**
+     * Get all guests
+     */
     this.getGuests = function () {
       return GuestService.getGuests();
     };
