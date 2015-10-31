@@ -18,4 +18,7 @@ angular.module('shufflingPines.controllers')
       console.log(GuestService.getGuests());
       $state.go('main.guests');
     };
+
+    // Start date picker not opened
+    this.picker = {opened: false};
   }]);
