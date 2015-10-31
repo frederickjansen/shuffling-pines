@@ -36,9 +36,9 @@
     </div>
 
 
-    <div class="form-group" ng-class="{ 'has-error' : guestForm.location.$invalid && !guestForm.location.$untouched }">
+    <div class="form-group" ng-show="guest.status == 'pickup'" ng-class="{ 'has-error' : guestForm.location.$invalid && !guestForm.location.$untouched }">
       <label>Location*</label>
-      <textarea class="form-control" name="location" id="location" ng-model="guest.location" ng-required="true" msd-elastic></textarea>
+      <textarea class="form-control" name="location" id="location" ng-model="guest.location" ng-required="guest.status == 'pickup'" msd-elastic></textarea>
 
       <p ng-show="guestForm.location.$invalid && !guestForm.location.$untouched" class="help-block">The location is
         required.</p>
@@ -61,7 +61,7 @@
       <label>Status: </label>
       {{guest.status | capitalize}}
     </div>
-    <label>Location: </label>
+    <label ng-show="guest.status == 'pickup'">Location: </label>
     <span ng-bind-html="guest.location | nl2br"></span>
   </div>
 </div>
