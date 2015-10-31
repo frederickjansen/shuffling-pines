@@ -29,7 +29,34 @@ angular.module('shufflingPines.controllers')
       return GuestService.getGuests();
     };
 
-    this.allGuests = this.getGuests();
+    /**
+     * Defines which status select items are shown
+     * @param status
+     * @param inputField
+     * @returns {boolean}
+     */
+    this.showStatus = function (status, inputField) {
+      return status === inputField;
+    };
 
-    this.picker = { opened: false };
+    // Select when status is dropoff
+    this.dropoffStatus = [
+      {value: 'dropoff', text: 'Drop-off'},
+      {value: 'arrived', text: 'Arrived'}
+    ];
+    // Select when status is pickup
+    this.pickupStatus = [
+      {value: 'pickup', text: 'Pick-up'},
+      {value: 'arrived', text: 'Arrived'}
+    ];
+    // Select when status is arrived
+    this.arrivedStatus = [
+      {value: 'arrived', text: 'Arrived'},
+      {value: 'pickup', text: 'Pick-up'}
+    ];
+    // Get all guests to show in table
+    this.allGuests = this.getGuests();
+    // Start date picker not opened
+    this.picker = {opened: false};
+
   }]);

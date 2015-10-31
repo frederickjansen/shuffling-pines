@@ -24,7 +24,16 @@
       </td>
       <td>
         <!-- editable group (select-local) -->
-        <span editable-select="guest.status" e-name="status" e-form="rowform">
+        <span editable-select="guest.status" ng-if="guests.showStatus(guest.status, 'pickup')" e-name="status"
+              e-form="rowform" e-ng-options="s.value as s.text for s in guests.pickupStatus">
+          {{ guest.status | capitalize }}
+        </span>
+        <span editable-select="guest.status" ng-if="guests.showStatus(guest.status, 'dropoff')" e-name="status"
+              e-form="rowform" e-ng-options="s.value as s.text for s in guests.dropoffStatus">
+          {{ guest.status | capitalize }}
+        </span>
+        <span editable-select="guest.status" ng-if="guests.showStatus(guest.status, 'arrived')" e-name="status"
+              e-form="rowform" e-ng-options="s.value as s.text for s in guests.arrivedStatus">
           {{ guest.status | capitalize }}
         </span>
       </td>
