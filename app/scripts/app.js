@@ -22,8 +22,8 @@ angular
     'monospaced.elastic',
     'xeditable'
   ])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  .config(['$stateProvider', '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
 
       $stateProvider
 
@@ -47,7 +47,6 @@ angular
         });
 
       $urlRouterProvider.otherwise('/form');
-      //$locationProvider.html5Mode(true);
     }])
   .run(['editableOptions', function(editableOptions) {
     editableOptions.theme = 'bs3';
