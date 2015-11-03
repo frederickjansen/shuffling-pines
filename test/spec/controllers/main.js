@@ -3,21 +3,26 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('testAngularApp'));
+  beforeEach(module('shufflingPines'));
 
-  var MainCtrl,
-    scope;
+  var MainCtrl;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
+  beforeEach(inject(function ($controller) {
+    MainCtrl = $controller('MainCtrl', {});
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('tab data should be set correctly', function () {
+    var tabData = [
+      {
+        heading: 'Form',
+        route: 'main.form'
+      },
+      {
+        heading: 'Guests',
+        route: 'main.guests'
+      }
+    ];
+    expect(MainCtrl.tabData).toEqual(tabData);
   });
 });
