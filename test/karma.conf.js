@@ -21,8 +21,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // bower:js
-      // endbower
+      'bower_components/angular/angular.min.js',
+      'bower_components/angular-elastic/elastic.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-ui-router-tabs/src/ui-router-tabs.js',
+      'bower_components/**/*.min.js',
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
       "test/spec/**/*.js"
@@ -30,6 +33,7 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
+      'bower_components/angular-bootstrap/ui-bootstrap.min.js'
     ],
 
     // web server port
