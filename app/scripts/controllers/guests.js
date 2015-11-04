@@ -8,7 +8,7 @@
  * Controller of the shufflingPines
  */
 angular.module('shufflingPines.controllers')
-  .controller('GuestsCtrl', ['$timeout', 'GuestService', function ($timeout, GuestService) {
+  .controller('GuestsCtrl', ['GuestService', function (GuestService) {
     /**
      * Remove a guest by setting the deleted flag to true
      * @param id Guest id to remove
