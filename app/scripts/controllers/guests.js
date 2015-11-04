@@ -22,7 +22,8 @@ angular.module('shufflingPines.controllers')
 
     /**
      * Edit a guest
-     * @param guest Object
+     * @param guestId Object
+     * @param data
      */
     this.editGuest = function (guestId, data) {
       data.id = guestId;
