@@ -14,7 +14,7 @@ describe('Controller: FormCtrl', function () {
     state = {
       go: function () {}
     };
-    spyOn(state, 'go').and.callThrough();
+    spyOn(state, 'go');
 
     GuestService = {
       addGuest: function () {},
@@ -29,9 +29,24 @@ describe('Controller: FormCtrl', function () {
     });
   }));
 
-  xit('submit must add new guest', function () {
+  it('delete must be set to false for new guests', function () {
+    var guest = {};
+    FormCtrl.submit(guest);
+    expect(guest.deleted).toEqual(false);
+  });
+
+  it('submit must add new guest, calling GuestService.addGuest', function () {
+    var guest = {
+      deleted: false
+    };
+    FormCtrl.submit(guest);
+    expect(GuestService.addGuest).toHaveBeenCalledWith(guest);
+  });
+
+  it('console.log must be called with GuestService.getGuests', function () {
+    console.log = jasmine.createSpy('log');
     FormCtrl.submit({});
-    expect(state.go).toHaveBeenCalledWith('main.guests');
+    expect(console.log).toHaveBeenCalled();
   });
 
   it('state should be main.guests after adding new guest', function () {
