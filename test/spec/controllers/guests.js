@@ -67,28 +67,30 @@ describe('Controller: GuestsCtrl', function () {
     expect(GuestsCtrl.showStatus('foo', 'bar')).toBe(false);
   });
 
-  it('dropoffStatus should be set correctly', function () {
-    var dropoffStatus = [
-      {value: 'dropoff', text: 'Drop-off'},
-      {value: 'arrived', text: 'Arrived'}
-    ];
-    expect(GuestsCtrl.dropoffStatus).toEqual(dropoffStatus);
-  });
+  describe('switching between dropoff/arrived/pickup should follow the correct rules', function () {
+    it('dropoff can only go to arrived', function () {
+      var dropoffStatus = [
+        {value: 'dropoff', text: 'Drop-off'},
+        {value: 'arrived', text: 'Arrived'}
+      ];
+      expect(GuestsCtrl.dropoffStatus).toEqual(dropoffStatus);
+    });
 
-  it('pickupStatus should be set correctly', function () {
-    var pickupStatus = [
-      {value: 'pickup', text: 'Pick-up'},
-      {value: 'arrived', text: 'Arrived'}
-    ];
-    expect(GuestsCtrl.pickupStatus).toEqual(pickupStatus);
-  });
+    it('pickup can only go to arrived', function () {
+      var pickupStatus = [
+        {value: 'pickup', text: 'Pick-up'},
+        {value: 'arrived', text: 'Arrived'}
+      ];
+      expect(GuestsCtrl.pickupStatus).toEqual(pickupStatus);
+    });
 
-  it('arrivedStatus should be set correctly', function () {
-    var arrivedStatus = [
-      {value: 'arrived', text: 'Arrived'},
-      {value: 'pickup', text: 'Pick-up'}
-    ];
-    expect(GuestsCtrl.arrivedStatus).toEqual(arrivedStatus);
+    it('arrived can only go to pickup', function () {
+      var arrivedStatus = [
+        {value: 'arrived', text: 'Arrived'},
+        {value: 'pickup', text: 'Pick-up'}
+      ];
+      expect(GuestsCtrl.arrivedStatus).toEqual(arrivedStatus);
+    });
   });
 
   it('guests should be pulled initially when loading controller', function () {
