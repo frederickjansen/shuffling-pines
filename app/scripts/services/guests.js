@@ -33,6 +33,7 @@ angular.module('shufflingPines.services')
         var guests = localStorageService.get('guests');
         if (!guests) {
           guests = generateGuests();
+          localStorageService.set('guests', guests);
         }
 
         return guests;
