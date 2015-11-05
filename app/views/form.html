@@ -10,7 +10,9 @@
     <div class="form-group"
          ng-class="{ 'has-error' : guestForm.transitionDate.$invalid && !guestForm.transitionDate.$untouched }">
       <label>Transition Date*</label>
-      <input type="text" class="form-control" uib-datepicker-popup ng-click="guests.picker.opened = true" ng-model="guest.transitionDate" is-open="guests.picker.opened" ng-required="true" close-text="Close" />
+      <input type="text" class="form-control" uib-datepicker-popup ng-focus="guests.picker.opened = true"
+             ng-click="guests.picker.opened = true" ng-model="guest.transitionDate" is-open="guests.picker.opened"
+             ng-required="true" close-text="Close"/>
 
       <p ng-show="guestForm.transitionDate.$invalid && !guestForm.transitionDate.$untouched" class="help-block">The
         transition date is required.</p>
@@ -36,9 +38,11 @@
     </div>
 
 
-    <div class="form-group" ng-show="guest.status == 'pickup'" ng-class="{ 'has-error' : guestForm.location.$invalid && !guestForm.location.$untouched }">
+    <div class="form-group" ng-show="guest.status == 'pickup'"
+         ng-class="{ 'has-error' : guestForm.location.$invalid && !guestForm.location.$untouched }">
       <label>Location*</label>
-      <textarea class="form-control" name="location" id="location" ng-model="guest.location" ng-required="guest.status == 'pickup'" msd-elastic></textarea>
+      <textarea class="form-control" name="location" id="location" ng-model="guest.location"
+                ng-required="guest.status == 'pickup'" msd-elastic></textarea>
 
       <p ng-show="guestForm.location.$invalid && !guestForm.location.$untouched" class="help-block">The location is
         required.</p>
