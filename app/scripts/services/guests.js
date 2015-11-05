@@ -12,6 +12,7 @@ angular.module('shufflingPines.services')
       guests.addGuest = function (guest) {
         var allGuests = this.getGuests();
         guest.id = allGuests.length + 1;
+        guest.deleted = false;
         allGuests.push(guest);
         localStorageService.set('guests', allGuests);
       };

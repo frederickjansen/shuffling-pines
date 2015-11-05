@@ -29,12 +29,6 @@ describe('Controller: FormCtrl', function () {
     });
   }));
 
-  it('delete must be set to false for new guests', function () {
-    var guest = {};
-    FormCtrl.submit(guest);
-    expect(guest.deleted).toEqual(false);
-  });
-
   it('submit must add new guest, calling GuestService.addGuest', function () {
     var guest = {
       deleted: false
