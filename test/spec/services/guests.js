@@ -39,7 +39,7 @@ describe('Service: GuestService', function () {
         name: "John Doe",
         transitionDate: new Date(2015, 12, 20),
         status: "dropoff",
-        location: "123 St\r\nBoston",
+        location: "",
         deleted: false
       }, {
         id: 2,
@@ -53,7 +53,7 @@ describe('Service: GuestService', function () {
         name: "Joe Johnson",
         transitionDate: new Date(2015, 12, 22),
         status: "dropoff",
-        location: "1 Rd\r\nSomerville",
+        location: "",
         deleted: false
       }
     ];
