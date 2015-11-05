@@ -3,7 +3,7 @@ Assignment 2 for Advanced JavaScript
 
 ## Installation instructions
 * Install NodeJS
-* Install Bower, Gulp and Karma-CLI globally through npm
+* Install Bower, Gulp, JSHint and Karma-CLI globally through npm
 * Run `npm install`
 * Run `bower install`
 * Run `gulp` for the full cycle, `gulp build` to produce production-ready files and `gulp test` to execute all unit tests
@@ -22,4 +22,4 @@ Assignment 2 for Advanced JavaScript
   * Adheres to pickup -> arrived, dropoff -> arrived rules
   
 If you see a console error when changing the date on the guests page, that's an xeditable bug (3rd party library).
-## By Frederick Joossens
+### By Frederick Joossens
